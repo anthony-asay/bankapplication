@@ -1,0 +1,167 @@
+<div class="purchaseList">  
+            <div class="box-tools">
+              <div class="accounts-holder" >
+                <div class="subnav">
+                    <button class="btn btn-alt" ng-click="loadCalendar()">Calendar</button>
+                    <button class="btn btn-success" data-toggle="modal" data-target="#create-purchase">Add Purchase</button>
+                    <button class="btn btn-alter" data-toggle="modal" data-target="#add-funds">Add funds</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#add-account">Add Account</button>
+                </div>
+
+                <table class="table account-summary">
+                    <caption class="cap-head"><h3 class="theader full-width">Account Summary</h3></caption>
+                    <thead>
+                        <tr>
+                            <th>Account</th>
+                            <th>Balance</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="account in accounts track by $index" id="account-{{$index}}">
+                            <td class="text-center"> <button class="btn btn-alter" data-toggle="modal" ng-click="changeAccount(account.id)">{{account.type}}</button>
+                            </td>
+                            <td class="text-center">
+                                <p class="btn">{{account.balance}}</p>
+                            </td>
+                            <td class="text-center">
+                                <button ng-click="removeAccount(account, $index)" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <div>
+                    <h4 class="select-header">Change Purchase History</h4>
+                    <select ng-model="days" class="btn full-width" ng-change='displayPurchaseDays()'>
+                        <option value="30">past 30 days</option>
+                        <option value="60">past 60 days</option>
+                        <option value="90">past 90 days</option>
+                        <option value="0">all purchases</option>
+                    </select>
+                    </div>
+                </div>
+                
+              </div>
+              
+            </div>
+            <h2 class="theader">Purchase History</h2>
+<table class="table table-bordered pagin-table">
+    <thead>
+        <tr>
+            <th>Date</th>
+			<th>Source</th>
+			<th>Amount</th>
+            <th>Balance</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="value in purchases track by $index" total-items="totalItems">
+            <td class="text-center">{{ value.date }}</td>
+            <td class="text-center">{{ value.source }}</td>
+            <td class="text-center">{{ value.amount }}</td>
+            <td class="text-center">{{ value.cur_bal }}</td>
+            <td class="text-center">
+            <button ng-click="remove(value, $index)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- Create Modal -->
+<div class="modal fade" id="create-purchase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="POST" name="addItem" role="form" ng-submit="saveAdd()">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Purchase</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <strong>Date : </strong>
+                            <div class="form-group">
+                                <input ng-model="form.date" type="date" placeholder="Date" name="date" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <strong>Source : </strong>
+                            <div class="form-group">
+                                <input ng-model="form.source" type="text" placeholder="Source" name="source" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <strong>Amount : </strong>
+                            <div class="form-group">
+                                <input ng-model="form.amount" type="number" step='0.01' value='0.00' placeholder='0.00' min="0" name="amount" class="form-control" required />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Add Funds Modal -->
+<div class="modal fade" id="add-funds" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="POST" name="addItem" role="form" ng-submit="addFunds()">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Funds</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <strong>Funds Amount : </strong>
+                            <div class="form-group">
+                                <input ng-model="form.amount" type="number" step='0.01' value='0.00' placeholder='0.00' min="0" name="amount" class="form-control" required />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Add Account Modal -->
+<div class="modal fade" id="add-account" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="POST" name="addItem" role="form" ng-submit="addAccount()">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Account</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="account">Account type</span>
+                                <select required ng-model="form.account_type" class="btn">
+                                    <option ng-repeat="value in accountTypes" value="{{value.id}}">{{value.account_type}}</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon" id="balance">Balance</span>
+                              <input required type="text" class="form-control" placeholder="0.00" aria-describedby="balance" name="balance" id="balance" ng-model="form.balance">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add account</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

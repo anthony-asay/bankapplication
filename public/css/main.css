@@ -1,0 +1,666 @@
+@font-face {
+    font-family: "Gill Sans";
+    src: url(../fonts/gill_sans.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Gill Sans Bold";
+    src: url(../fonts/gill_sans_bold.ttf) format("truetype");
+}
+
+input {
+  font-family: "Gill Sans";
+}
+
+img {
+  max-width: 100%;
+}
+
+hr{
+  display: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#container {
+  min-height: 100%;
+  height: auto;
+}
+
+#container::after {
+  content: " ";
+}
+
+html > body{
+  margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
+  font-family: "Gill Sans";
+}
+
+html > body h3, html > body h2, html > body h4 {
+  font-family: "Gill Sans";
+}
+header > div > a{
+  padding:0;
+  margin: 0;
+}
+
+header {
+  padding-top: 10px;
+  background-color: white;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+#subheader2 {
+  background-color: white;
+}
+
+#container {
+  margin-top: 120px;
+}
+header > div > p {
+  display: inline-block;
+  margin: auto;
+  color: #22B14C;
+  font-size: 13px;
+  margin-top: 0;
+  height: 10px;
+}
+
+header > div > p:hover {
+  color: #00C4EB;
+}
+
+header > div > p + p::before {
+  content: "| ";
+}
+
+header > div {
+  text-align: center;
+  cursor: pointer;
+}
+
+nav {
+  margin-top: 4px;
+  text-align: center;
+  background-color: #22B14C;
+  padding: 4px;
+}
+
+nav a {
+  transition: .3s;
+  list-style: none;
+  text-decoration: none;
+  padding:6px;
+  color: white;
+}
+
+nav a:hover {
+  background-color: white;
+  color: #00C4EB;
+}
+
+nav div {
+  display: inline-block;
+}
+
+nav > div:nth-child(n+2)::before {
+  content: "|";
+  padding:5px;
+  color: white;
+}
+
+footer {
+  color: white;
+  width: 100%;
+  background-color: #545454;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.width80 {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.width20 {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+footer > div > p {
+  text-align: center;
+}
+
+footer a {
+  transition: .3s;
+  text-decoration: none;
+  color: white;
+}
+
+footer a:hover {
+  color: #00C4EB;
+}
+
+input[type="text"], input[type="password"] {
+  padding: 5px;
+  font-size: 15px;
+  letter-spacing: .5px;
+}
+
+.facebook{
+    display:inline-block;
+    padding-right: 15px;
+    margin-top: 20px;
+    width:45px;
+    height: 45px;
+    background:transparent url('/public/images/ico/facebook_grey.png');
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+
+}
+
+.facebook:hover{
+    background:transparent url('/public/images/ico/facebook.png');
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+}
+
+.linkedin{
+    display:inline-block;
+    margin-top: 15px;
+    padding-right: 15px;
+    background-size: 45px;
+    width:45px;
+    height: 45px;
+    background:transparent url('/public/images/ico/linkedin_grey.png');
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+}
+
+.linkedin:hover{
+    background:transparent url('/public/images/ico/linkedin.png');
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+}
+
+.youtube{
+    display:inline-block;
+    margin-top: 15px;
+    padding-right: 15px;
+    background-size: 45px;
+    width:45px;
+    height: 45px;
+    background:transparent url('/public/images/ico/youtube_grey.png');
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+}
+
+.youtube:hover{
+    background:transparent url('/public/images/ico/youtube.png');
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+}
+
+i[class*=icons] {
+  position: relative;
+  top: 5px;
+  padding-right: 5px;
+}
+
+.main {
+  width: 100%;
+  height: auto;
+}
+
+.background-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.first-image {
+    background: url('/public/images/borrador15.jpg') no-repeat center center fixed; 
+    z-index: -9;
+    opacity: 0;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   
+}
+
+.second-image {
+    background: url('/public/images/borrador14.jpg') no-repeat center center fixed; 
+   z-index: -8;
+    opacity: 0;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    
+}
+
+.third-image {
+    background: url('/public/images/borrador11.jpg') no-repeat center center fixed; 
+   z-index: -7;
+    opacity: 0;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+
+.first-image.show {
+    opacity: 1;
+    position: fixed;
+}
+
+.second-image.show {
+    opacity: 1;
+    position: fixed;
+}
+
+.third-image.show {
+    opacity: 1;
+    position: fixed;
+}
+
+
+.toggle-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 800px;
+    transition: opacity .4s ease-in-out;
+}
+
+.description {
+  margin-top: 25px;
+  /*text-align: center;*/
+  width: 100%;
+  color: black;
+  background-color: rgba(68,186,193,.6);
+  display: block;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.description:target {
+  background-color: rgba(68,186,193,.6);
+  display: block;
+}
+
+.description > p {
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.description > h2 {
+  padding-left: 5px;
+  color: white;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding:2px;
+  background-color: rgb(30,90,98);
+}
+
+.description.show {
+  z-index: 1;
+}
+
+.description.hide {
+  z-index:-110;
+}
+
+.messages > h3 {
+  padding-left: 5px;
+  color: white;
+  font-style: italic;
+  background-color: rgba(110,110,110,.8);
+  margin-bottom: 0;
+}
+
+.messages > p {
+  color: black;
+  background-color: rgba(300,300,300, .4);
+  padding: 10px;
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.desc {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.message {
+  width: 100%;
+  display: block;
+  position: relative;
+  height: 150px;
+}
+
+.messages {
+  width: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.messages.show {
+  z-index: 1;
+}
+
+.messages.hide {
+  z-index:-110;
+}
+
+.description a {
+  transition: .3s;
+  text-decoration: none;
+  color: white;
+}
+
+.description a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.title-footer {
+  margin-bottom: 0;
+}
+
+.description form {
+  padding: 20px;
+  padding-top: 0;
+}
+
+.description form > input {
+  margin: 0 0 20px 20px;
+}
+
+/*Purchase Table*/
+.table {
+  background-color: rgba(200, 200, 200, .8);
+}
+
+.table tr:nth-child(even) {
+  background-color: rgba(150, 150, 150, .8);
+}
+
+.purchaseList > .table-bordered {
+  
+}
+
+.accounts-holder {
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  /*
+  
+  align-items: flex-start;*/
+}
+
+.accounts-holder > * {
+  width: 100%;
+}
+
+.accounts-holder > .table {
+  background-color: rgba(50,50,50,.8);
+  color: white;
+}
+
+.table select {
+  color: black;
+}
+
+.accounts-holder > div {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.input-group{
+  margin-bottom: 15px;
+  padding-right: 0;
+}
+
+h2[class=ng-scope]{
+  color: white;
+}
+
+.accounts-holder > div > * {
+  
+  display: block;
+  width: 150px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.btn-alter {
+  background-color: #3276b1;
+  color: white;
+}
+
+@media only screen and (min-width:620px){
+  .accounts-holder {
+    padding: 25px;
+    justify-content: space-around;
+  }
+  .accounts-holder > .table {
+    width: 35%;
+  }
+
+  .accounts-holder > div {
+    flex-flow: row wrap;
+    width: 35%;
+  }
+}
+
+.ng-enter           { animation: scaleUp 0.5s both ease-in; z-index: 8888; }
+    .ng-leave           { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }
+
+.input-group-addon:first-child {
+    width: 165px;
+    border-right: 0;
+}
+
+form[name=authenticateForm] .input-group-addon:first-child {
+  width: auto;
+}
+
+/*.description .row {
+  padding-top: 15px;
+  margin-right: 0;
+  margin-left: 0;
+}*/
+
+.modal-backdrop { 
+  z-index: 0 !important; 
+  }
+
+.cal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.table th {
+  width: 14%;
+  text-align: center;
+}
+
+.cal > * {
+}
+
+.description .login-form {
+  
+}
+
+.subheader {
+  display: none;
+}
+
+header {
+  position: fixed;
+}
+
+.input-group {
+  width: 92.5%;
+  margin-left: 2.5%;
+}
+
+form button {
+  margin-left: 2.5%;
+}
+
+* {
+  transition: all .2s ease-in-out;
+}
+
+.accounts-holder .subnav {
+  width: 100%;
+}
+
+.modal select {
+  border: .5px solid gray;
+}
+
+#balance {
+  width: 200px;
+}
+
+.description > .table > tbody td {
+  height: 100px;
+}
+
+.theader {
+  padding-left: 5px;
+  color: white;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding:2px;
+  background-color: rgb(30,90,98);
+  border-radius: 3px 3px 0 0;
+}
+
+.cap-head {
+  padding-bottom: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.account-summary thead:first-child tr:first-child th {
+  padding: 0;
+}
+
+.select-header {
+  padding: 3px;
+  color: white;
+  background-color: rgba(110,110,110,.8);
+  margin-bottom: 0;
+  font-size: 16px;
+  border-radius: 3px 3px 0 0;
+}
+
+a:visted {
+  color: black;
+}
+
+
+@media only screen and (min-width:700px){
+
+  .modal .modal-dialog {
+    left: 0;
+  }
+
+  .description{
+    width: 75%;
+    margin-left: 15%;
+    border-radius: 5px;
+  }
+
+  .description h2{
+    border-radius: 5px 5px 0 0;
+  }
+
+  #subheader2 {
+    display: none;
+  }
+
+  .subheader {
+    background-color: #22B14C;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+
+  }
+
+  .subheader > a {
+    width: 225px; 
+    background-color: white;
+  }
+
+  .subheader > div {
+    margin-top: 2%;
+    width: 150px;
+  }
+
+  .menu-top a {
+    color: white;
+  }
+
+  .subheader > p {
+    margin-top: 2%;
+    color: white;
+  }
+
+  header {
+    width: 100%;
+    padding:0;
+  }
+  header > div > p + p::before {
+    content: "";
+}
+
+  header > div > p {
+    display: block; 
+    margin: 0; 
+    color: #22B14C;
+   
+    /* margin-top: 0; */
+     height: 0; 
+}
+.input-group {
+  width: 55%;
+  margin-left: 25%;
+}
+
+form button {
+  margin-left: 25%;
+}
+
+}

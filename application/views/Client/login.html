@@ -1,0 +1,16 @@
+
+<div class="description" id="login">
+    <h2>Log In</h2>
+    <form name="authenticateForm" ng-submit="authenticate(client)" class="login-form">
+        <p ng-model="error">{{error}}</p>
+        <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input type="text" ng-model="client.username" class="form-control" name="username" placeholder="user name">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input type="password" ng-model="client.password"  class="form-control" name="password" placeholder="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>

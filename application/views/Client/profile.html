@@ -1,0 +1,70 @@
+<div class="description">
+<h2>Edit your information</h2>
+<div>
+	<div id="p-alert" role="alert">
+		<p >{{profileMessage}}</p>
+	</div>
+	<form method="POST" name="update" role="form" ng-submit="updateInfo()">
+		<div class="row">
+			<h3>Profile Information</h3>
+		<div class="input-group">
+		  <span class="input-group-addon" id="first_name">First Name</span>
+		  <input required type="text" class="form-control" placeholder="first name" aria-describedby="first_name" name="first_name" id="first_name" ng-model="contactInfo.name_first">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="last_name">Last Name</span>
+		  <input required type="text" class="form-control" placeholder="last name" aria-describedby="last_name" name="last_name" id="last_name" ng-model="contactInfo.name_last">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="middle_name">Middle Name</span>
+		  <input required type="text" class="form-control" placeholder="middle name" aria-describedby="middle_name" name="middle_name" id="middle_name" ng-model="contactInfo.name_middle">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="user_name">User Name</span>
+		  <input required type="text" class="form-control" placeholder="user name" aria-describedby="user_name" name="user_name" id="user_name" ng-model="contactInfo.name_user">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="password">Password</span>
+		  <input required type="password" class="form-control" placeholder="password" aria-describedby="password" name="password" id="password" ng-model="contactInfo.password">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="conPassword">Confirm Password</span>
+		  <input required type="password" class="form-control" placeholder="password" aria-describedby="conPassword" name="conPassword" id="conPassword" ng-model="contactInfo.conPassword">
+		</div>
+		<div class="input-group"> 
+		  <span class="input-group-addon" id="birthDate">Birthdate</span>
+		  <input required type="date" class="form-control" placeholder="birthdate" aria-describedby="birthDate" name="birthDate" id="birthDate" ng-model="contactInfo.date_birth">
+		</div>
+		<h3>Contact Information</h3>
+		<div class="input-group">
+		  <span class="input-group-addon" id="cont-number">Contact Number</span>
+		  <input required type="text" class="form-control" placeholder="Number" aria-describedby="cont-number" name="cont-number" id="cont-number" ng-model="contactInfo.phone_number">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="email">Email</span>
+		  <input required type="text" class="form-control" placeholder="Email" aria-describedby="email" name="email" id="email" ng-model="contactInfo.email">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="address">Street Address</span>
+		  <input required type="text" class="form-control" placeholder="address" aria-describedby="address" name="address" id="address" ng-model="contactInfo.address">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="city">City</span>
+		  <input required type="text" class="form-control" placeholder="city" aria-describedby="city" name="city" id="city" ng-model="contactInfo.city">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="state">State</span>
+		  <input required type="text" class="form-control" placeholder="state" aria-describedby="state" name="state" id="state" ng-model="contactInfo.state">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="zipcode">Zipcode</span>
+		  <input required type="text" class="form-control" placeholder="zipcode" aria-describedby="zipcode" name="zipcode" id="zipcode" ng-model="contactInfo.zipcode">
+		</div>
+
+		<input type="hidden" name="id" id="id" ng-model="contactInfo.id">		
+		<input type="hidden" name="id_client" id="id_client" ng-model="contactInfo.id_client">	
+		<button type="submit" ng-disabled="addItem.$invalid" class="btn btn-primary">Submit</button>	
+		</div>
+	</form>
+</div>
+</div>

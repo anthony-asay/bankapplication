@@ -1,0 +1,21 @@
+<h2>Contact Information</h2>
+<div>
+	<form method="POST" name="update" role="form" ng-submit="updateInfo()">
+		<label for="cont-number">Contact Number: </label>
+		<input type="text" name="cont-number" id="cont-number" ng-model="contactInfo.phone_number">
+		<label for="email">Email: </label>
+		<input type="text" name="email" id="email" ng-model="contactInfo.email">
+		<label for="address">Street Address: </label>
+		<input type="text" name="address" id="address" ng-model="contactInfo.address">
+		<label for="city">City: </label>
+		<input type="text" name="city" id="city" ng-model="contactInfo.city">
+		<label for="state">State: </label>
+		<input type="text" name="state" id="state" ng-model="contactInfo.state">
+		<label for="zipcode">Zipcode: </label>
+		<input type="text" name="zipcode" id="zipcode" ng-model="contactInfo.zipcode">
+
+		<input type="hidden" name="id" id="id" ng-model="contactInfo.id">		
+		<input type="hidden" name="id_client" id="id_client" ng-model="contactInfo.id_client">	
+		<button type="submit" ng-disabled="addItem.$invalid" class="btn btn-primary">Submit</button>	
+	</form>
+</div>

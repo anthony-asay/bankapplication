@@ -1,0 +1,46 @@
+<div class="description">
+	<div class="cal">
+		<button class="btn btn-primary" ng-click="minusMonth()"><</button>
+		<h4 class="text-center">{{months[month]}}</h4>
+		<button class="btn btn-primary" ng-click="plusMonth()">></button>
+	</div>
+	<div class="cal">
+		<button class="btn btn-alt" ng-click="minusYear()"><</button>
+		<h4 class="text-center">{{year}}</h4> 
+		<button class="btn btn-alt" ng-click="plusYear()">></button>         
+	</div>
+	<h3 class="text-center">Monthly Total: {{totalAmount}}</h4>
+	<table class="table table-bordered pagin-table">
+	    <thead>
+	        <tr>
+	        	<th>Sun</th>
+	        	<th>Mon</th>
+	        	<th>Tue</th>
+	        	<th>Wed</th>
+	        	<th>Thu</th>
+	        	<th>Fri</th>
+	        	<th>Sat</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr total-items="totalItems">
+	            <td ng-repeat="value in days[0] track by $index"><h4 class="text-right">{{value.day}}</h4> <p class="text-center">{{value.total}}</p></td>
+	        </tr>
+	        <tr total-items="totalItems">
+	            <td ng-repeat="value in days[1] track by $index"><h4 class="text-right">{{value.day}}</h4> <p class="text-center">{{value.total}}</p></td>
+	        </tr>
+	        <tr total-items="totalItems">
+	            <td ng-repeat="value in days[2] track by $index"><h4 class="text-right">{{value.day}}</h4> <p class="text-center">{{value.total}}</p></td>
+	        </tr>
+	        <tr total-items="totalItems">
+	            <td ng-repeat="value in days[3] track by $index"><h4 class="text-right">{{value.day}}</h4> <p class="text-center">{{value.total}}</p></td>
+	        </tr>
+	        <tr total-items="totalItems">
+	            <td ng-repeat="value in days[4] track by $index"><h4 class="text-right">{{value.day}}</h4> <p class="text-center">{{value.total}}</p></td>
+	        </tr>
+	        <tr total-items="totalItems">
+	            <td ng-repeat="value in days[5] track by $index"><h4 class="text-right">{{value.day}}</h4> <p class="text-center">{{value.total}}</p></td>
+	        </tr>
+	    </tbody>
+	</table>
+</div>
